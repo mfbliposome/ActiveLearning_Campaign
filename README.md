@@ -16,5 +16,6 @@ In this folder, it has stored the data files for each active learning rounds inc
 -  next plan for the experiment (e.g. 'dispense_df_20240416.xlsx'),
 -  constructed model for current datapool,
 -  turbidity data,
--  Original microscopy image and vesicles detection results. These data files can be downloaded from [zenodo link]
+-  cvc data
+-  Original microscopy image and vesicles detection results. These data files can be downloaded from [[\usepackage{xurl} % for breaking long URLs](https://doi.org/10.5281/zenodo.12522610)]
 
