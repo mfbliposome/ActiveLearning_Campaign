@@ -357,3 +357,138 @@ def cal_vesicles_per(pred_probs):
     
     print(f"Percentage of 1s: {percentage_of_ones:.4f}%")
     return percentage_of_ones
+    
+# def plot_samples(df, title, color_map):
+#     '''
+#     Function to plot horizontal bars for each sample composition
+#     '''
+#     num_samples = df.shape[0]
+#     features = df.columns
+# 
+#     plt.figure(figsize=(15, num_samples * 0.5))
+# 
+#     for i in range(num_samples):
+#         sample = df.iloc[i, :]
+#         left = 0
+#         for feature in features:
+#             plt.barh(i, sample[feature], left=left, color=color_map[feature], label=feature if i == 0 else "")
+#             left += sample[feature]
+# 
+#     plt.xlabel('Concentration (mM)')
+#     plt.ylabel('Sample Index')
+#     plt.title(title)
+#     plt.legend(loc='upper left', bbox_to_anchor=(1, 1))
+#     plt.tight_layout()
+#     plt.show()
+
+def histogram_log(probs):
+    '''
+    Plot histogram with log scale (base=10)
+    '''
+
+    second_column = probs[:, 1]
+    # base = 10
+    plt.hist(second_column, log=True)
+
+
+def generate_samples(bounds, limit, num_required_samples=10000000, num_generate_samples = 1000000):
+
+    """
+    Generates a specified number of valid samples within given bounds while 
+    adhering to a concentration limit constraint. The function uses adaptive 
+    sampling to improve efficiency and reduce computation time.
+
+    Parameters:
+    - bounds (ndarray): A 2xN array where the first row contains the lower 
+      bounds and the second row contains the upper bounds for each dimension.
+    - limit (float): The maximum allowable sum of the concentrationss for a sample to 
+      be considered valid.
+    - num_required_samples (int, optional): The total number of valid samples 
+      required. Defaults to 10,000,000.
+    - num_generate_samples (int, optional): The number of samples to generate 
+      in each batch. Defaults to 1,000,000.
+
+    Returns:
+    - valid_samples1 (ndarray): An array of valid samples transformed with 
+      log1p.
+    """
+
+    # Initial bounds
+    original_bounds = bounds
+    num_required_samples = 10000000
+    num_dimensions = original_bounds.shape[1]
+
+    # Define a simpler distribution (e.g., uniform) covering the initial bounds
+    low = original_bounds[0]
+    high = original_bounds[1]
+
+    # Parameters for adaptive bounds
+    adjust_factor = 0.9  # Factor to adjust the bounds by
+    min_bound = 1e-4  # Minimum bound size to avoid too small sampling ranges
+
+    start_time = time.time()  # Record start time
+
+    valid_samples = []
+    num_generate_samples = 1000000  # Initial batch size
+
+    while len(valid_samples) < num_required_samples:
+        # Generate samples
+        samples = np.random.uniform(low=low, high=high, size=(num_generate_samples, num_dimensions))
+
+        # Calculate the sum of the features
+        total_concentration = samples.sum(axis=1)
+
+        # Reject samples violating the constraint (total_concentration < limit)
+        valid_samples_batch = samples[total_concentration < limit]
+
+        # Append valid samples
+        valid_samples.extend(valid_samples_batch.tolist())
+
+        # Adjust the sampling bounds if the success rate is low
+        if len(valid_samples_batch) < num_generate_samples * 0.01:
+            range_size = high - low
+            new_range_size = range_size * adjust_factor
+            # Ensure the bounds do not get too small
+            new_range_size = np.maximum(new_range_size, min_bound)
+            high = low + new_range_size
+            print(f"Adjusting bounds to {high}")
+
+        # Print progress
+        print(f"Generated {num_generate_samples} samples, found {len(valid_samples_batch)} valid samples")
+
+    # Ensure we have exactly the required number of samples
+    valid_samples = np.array(valid_samples[:num_required_samples])
+
+    # Apply log1p transform
+    valid_samples1 = np.log1p(valid_samples)
+    print(valid_samples1.shape)
+
+    end_time = time.time()  # Record end time
+
+    # Calculate and print execution time
+    execution_time = end_time - start_time
+    print(f"Execution time: {execution_time:.2f} seconds")
+
+    return valid_samples1
+
+def plot_histogram(data, path, filename):
+    '''
+    data: The predicted probabilities array
+    filename: The filename for saved figures, e.g. 'histogram_model.pdf'
+    '''
+    second_column = data[:, 1]
+    # Create the histogram
+    plt.figure(figsize=(12, 8))
+    sns.histplot(second_column, bins=100, kde=False, color='royalblue')  # Increase the number of bins
+    
+    # Customize the plot
+    plt.xlabel('Predicted Probabilities', fontsize=14)
+    plt.ylabel('Frequency', fontsize=14)
+    plt.xticks(fontsize=12)
+    plt.yticks(fontsize=12)
+    
+    # Save the plot with high resolution
+    plt.savefig(path+filename, format='pdf', dpi=600, bbox_inches='tight')
+    
+    # Show the plot
+    plt.show()
