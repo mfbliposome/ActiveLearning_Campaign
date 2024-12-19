@@ -32,5 +32,11 @@ Note, in this repository, we have used the term 'monocaprin' as a shorthand for 
 
 ## Citation
 
-If you use this repository in your research, please cite it as follows: TBD
+If you use this repository in your research, please cite it as follows: 
+1. Ekosso C, Liu H, Glagovich A, Nguyen D, Maurer S, Schrier J. Accelerating the Discovery of Abiotic Vesicles with AI-Guided Automated Experimentation. ChemRxiv. 2024; doi:10.26434/chemrxiv-2024-h3rwq  This content is a preprint.
+
+## License
+
+This project is licensed under the [BSD 3-Clause License](LICENSE). Please cite this repository if you use it in your work.
+
 
