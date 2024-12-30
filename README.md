@@ -33,7 +33,7 @@ Note, in this repository, we have used the term 'monocaprin' as a shorthand for 
 ## Citation
 
 If you use this repository in your research, please cite it as follows: 
-
+```
 @article{doi:10.1021/acs.langmuir.4c04181,
 author = {Ekosso, Christelle and Liu, Hao and Glagovich, Avery and Nguyen, Dustin and Maurer, Sarah and Schrier, Joshua},
 title = {Accelerating the Discovery of Abiotic Vesicles with AI-Guided Automated Experimentation},
@@ -46,7 +46,7 @@ doi = {10.1021/acs.langmuir.4c04181},
 URL = {https://doi.org/10.1021/acs.langmuir.4c04181},
 eprint = {https://doi.org/10.1021/acs.langmuir.4c04181}
 }
-
+```
 
 ## License
 
