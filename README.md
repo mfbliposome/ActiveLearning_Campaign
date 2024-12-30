@@ -33,7 +33,20 @@ Note, in this repository, we have used the term 'monocaprin' as a shorthand for 
 ## Citation
 
 If you use this repository in your research, please cite it as follows: 
-1. Ekosso C, Liu H, Glagovich A, Nguyen D, Maurer S, Schrier J. Accelerating the Discovery of Abiotic Vesicles with AI-Guided Automated Experimentation. ChemRxiv. 2024; doi:10.26434/chemrxiv-2024-h3rwq  This content is a preprint.
+
+@article{doi:10.1021/acs.langmuir.4c04181,
+author = {Ekosso, Christelle and Liu, Hao and Glagovich, Avery and Nguyen, Dustin and Maurer, Sarah and Schrier, Joshua},
+title = {Accelerating the Discovery of Abiotic Vesicles with AI-Guided Automated Experimentation},
+journal = {Langmuir},
+volume = {0},
+number = {0},
+pages = {null},
+year = {0},
+doi = {10.1021/acs.langmuir.4c04181},
+URL = {https://doi.org/10.1021/acs.langmuir.4c04181},
+eprint = {https://doi.org/10.1021/acs.langmuir.4c04181}
+}
+
 
 ## License
 
