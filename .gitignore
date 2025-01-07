@@ -16,10 +16,12 @@
 
 **/*.zip
 
-# Ignore mac-housekeeping
+# Mac files
+**/. DS_Store
 .DS_Store
-
-foo.xlsx
+._.DS_Store
+**/.DS_Store
+**/._.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
