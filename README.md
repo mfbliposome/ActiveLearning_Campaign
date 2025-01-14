@@ -38,14 +38,29 @@ If you use this repository in your research, please cite it as follows:
 author = {Ekosso, Christelle and Liu, Hao and Glagovich, Avery and Nguyen, Dustin and Maurer, Sarah and Schrier, Joshua},
 title = {Accelerating the Discovery of Abiotic Vesicles with AI-Guided Automated Experimentation},
 journal = {Langmuir},
-volume = {0},
-number = {0},
-pages = {null},
-year = {0},
+volume = {41},
+number = {1},
+pages = {858-867},
+year = {2025},
 doi = {10.1021/acs.langmuir.4c04181},
-URL = {https://doi.org/10.1021/acs.langmuir.4c04181},
-eprint = {https://doi.org/10.1021/acs.langmuir.4c04181}
+
+URL = { 
+    
+        https://doi.org/10.1021/acs.langmuir.4c04181
+    
+    
+
+},
+eprint = { 
+    
+        https://doi.org/10.1021/acs.langmuir.4c04181
+    
+    
+
 }
+
+}
+
 ```
 
 ## License
