@@ -43,24 +43,9 @@ number = {1},
 pages = {858-867},
 year = {2025},
 doi = {10.1021/acs.langmuir.4c04181},
-
-URL = { 
-    
-        https://doi.org/10.1021/acs.langmuir.4c04181
-    
-    
-
-},
-eprint = { 
-    
-        https://doi.org/10.1021/acs.langmuir.4c04181
-    
-    
-
+URL = {https://doi.org/10.1021/acs.langmuir.4c04181},
+eprint = {https://doi.org/10.1021/acs.langmuir.4c04181}
 }
-
-}
-
 ```
 
 ## License
