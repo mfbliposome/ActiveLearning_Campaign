@@ -3,7 +3,7 @@
 This repo is for archive AL rounds for image analysis and model construction
 
 ## Folder structure
-In this repo, it have 2 subfolders: 'code', 'data'.
+In this repo, it has 2 subfolders: 'code', 'data'.
 
 ### folder 'code'
 - In this folder, it has 3 subfolders: 'src', 'notebooks', 'Templates', which store the module function, working notebooks, and templates.
